@@ -5,7 +5,7 @@ const Product = require('../models/product.model')
 const productGet = async( req=request, res = response ) => {
 
     //const { nombre = 'no name', apikey } = req.query;
-    const { limite = 6, desde=0 } = req.query;
+    const { limite = 15, desde=0 } = req.query;
     const query = { state:true };
     //const productos = await Usuario.find(query).skip( Number(desde) ).limit( Number(limite) );
 
