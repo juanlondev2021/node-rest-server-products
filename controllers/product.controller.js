@@ -17,7 +17,7 @@ const productGet = async( req=request, res = response ) => {
     ])
 
     res.json({
-        total,
+        
         productos
         
   })
