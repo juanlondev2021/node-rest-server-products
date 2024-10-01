@@ -28,8 +28,8 @@ const ProductSchema = Schema({
 })
 
 ProductSchema.methods.toJSON = function(){
-    const { __v, ...usuario} = this.toObject();
-    return usuario;
+    const { __v, ...data} = this.toObject();
+    return data;
 }
 
 module.exports = model('Product', ProductSchema);

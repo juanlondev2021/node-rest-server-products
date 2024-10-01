@@ -20,7 +20,24 @@ const productExistById = async(id) => {
 
 }
 
+/***
+ * 
+ * Validar colecciones permitidas
+ * **/
+const coleccionesPermitidas = ( coleccion = '', colecciones = []) =>{
+
+  const coleccionIncluida = colecciones.includes( coleccion );
+  if ( !coleccionIncluida ) {
+    throw new Error(` la coleccion no es permitida: ${coleccion}` );
+    
+  }
+  return true;
+
+}
+
+
 module.exports = {
     nameExist,
-    productExistById 
+    productExistById,
+    coleccionesPermitidas
 }
