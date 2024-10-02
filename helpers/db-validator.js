@@ -1,9 +1,9 @@
-const Usuario = require('../models/product.model');
+const Producto = require('../models/product.model');
 
 
 const nameExist = async(nombre = '') => {
      //validacion de campos obligatorios
-     const existeNombre = await Usuario.findOne({nombre});
+     const existeNombre = await Producto.findOne({nombre});
      if ( existeNombre ) {
        throw new Error(`El nombre: ${ nombre} ya existe`);
        
@@ -12,7 +12,7 @@ const nameExist = async(nombre = '') => {
 
 const productExistById = async(id) => {
     //validacion de campos obligatorios
-    const existeProducto = await Usuario.findOne({id});
+    const existeProducto = await Producto.findOne({id});
     if ( !existeProducto ) {
       throw new Error(`El id: ${ id} no existe`);
       
