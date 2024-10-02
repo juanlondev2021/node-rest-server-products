@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { productGet, productPut, productPost, productDelete, productPatch } = require('../controllers/product.controller');
+const { productGet, productPut, productPost, productDelete, productPatch, productGetById } = require('../controllers/product.controller');
 const { check } = require('express-validator');
 const { validarCampos } = require('../middlewares/validar_campos.middlewares');
 const { nameExist, productExistById } = require('../helpers/db-validator');
@@ -8,6 +8,12 @@ const router = Router();
 
 
 router.get('/', productGet);
+
+router.get('/:id', [
+  check('id', 'No es un id valido').isMongoId(),
+  check('id').custom(productExistById),
+  validarCampos
+], productGetById);
 
   router.put('/:id', [
     check('id', 'No es un id valido').isMongoId(),

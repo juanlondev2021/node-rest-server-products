@@ -23,6 +23,20 @@ const productGet = async( req=request, res = response ) => {
   })
 }
 
+const productGetById = async(req, res) => {
+
+  const {id} = req.params;
+  const body = req.body;
+
+  //Validar contra bases de datos
+  const product = await Product.findById( id, body );
+
+  res.json({
+      msn:'mesaje desde el get para solicitar un solo producto controlador',
+      product
+  })
+}
+
   const productPut = async(req, res) => {
 
     const {id} = req.params;
@@ -72,6 +86,7 @@ const productGet = async( req=request, res = response ) => {
 
   module.exports = {
     productGet,
+    productGetById,
     productPut,
     productPost,
     productDelete,
