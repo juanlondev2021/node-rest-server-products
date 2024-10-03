@@ -6,7 +6,7 @@ const { dbConnection } = require('../database/config.database');
 
 class Server{
 
-    whiteList = ['http://localhost:4200']
+    
 
     constructor(){
         this.app = express();
@@ -30,6 +30,7 @@ class Server{
 
     middlewares(){
         //CORS
+        const whiteList = ['http://localhost:4200']
         this.app.use(cors({ origin: whiteList }));
 
         //Lectura y parseo del body
